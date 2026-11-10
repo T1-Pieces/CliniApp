@@ -1,0 +1,136 @@
+
+/* =====================================================
+   ESTILOS DEL MÓDULO DE ESPECIALIDADES
+   ===================================================== */
+
+/* Contenedor general del módulo. */
+.contenedor-especialidades {
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Encabezado del módulo. */
+.encabezado-modulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.encabezado-modulo h2 {
+    margin-bottom: 8px;
+}
+
+.encabezado-modulo p {
+    margin: 0;
+}
+
+/* Contenedor que permite desplazar la tabla en pantallas pequeñas. */
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Tabla de especialidades. */
+.tabla-especialidades {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+/* Encabezados y celdas. */
+.tabla-especialidades th,
+.tabla-especialidades td {
+    padding: 14px;
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+}
+
+/* Encabezado de la tabla. */
+.tabla-especialidades th {
+    background-color: #eaf3f5;
+    font-weight: bold;
+}
+
+/* Efecto al pasar el cursor por una fila. */
+.tabla-especialidades tbody tr:hover {
+    background-color: #f5f9fa;
+}
+
+/* Organización de los botones de acción. */
+.acciones {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.acciones form {
+    margin: 0;
+}
+
+/* Estilo general de los botones y enlaces de acción. */
+.boton {
+    display: inline-block;
+    padding: 9px 13px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Botón principal de registro. */
+.boton-primario {
+    background-color: #087f8c;
+    color: #ffffff;
+}
+
+/* Botón de edición. */
+.boton-editar {
+    background-color: #e5a000;
+    color: #ffffff;
+}
+
+/* Botón de eliminación. */
+.boton-eliminar {
+    background-color: #c0392b;
+    color: #ffffff;
+}
+
+/* Efecto al pasar el cursor por los botones. */
+.boton:hover {
+    opacity: 0.85;
+}
+
+/* Mensaje cuando no existen registros. */
+.sin-registros {
+    padding: 25px !important;
+    text-align: center !important;
+    color: #777777;
+}
+
+/* Información del total de registros. */
+.total-registros {
+    margin-top: 15px;
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Adaptación a dispositivos móviles. */
+@media (max-width: 650px) {
+
+    .encabezado-modulo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .acciones {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}

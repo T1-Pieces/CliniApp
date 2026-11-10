@@ -1,0 +1,111 @@
+
+{% extends "base.html" %}
+
+{% block titulo %}Especialidades | CliniApp{% endblock %}
+
+{% block estilos %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/especialidades.css') }}">
+{% endblock %}
+
+{% block contenido %}
+
+<!-- Contenedor principal del módulo de especialidades. -->
+<section class="contenedor-especialidades">
+
+    <!-- Encabezado del módulo. -->
+    <div class="encabezado-modulo">
+        <div>
+            <h2>Gestión de especialidades</h2>
+            <p>Consulta y administra las especialidades médicas.</p>
+        </div>
+
+        <!-- Acceso al formulario de registro. -->
+        <a href="{{ url_for('especialidad.registrar_especialidad') }}"
+           class="boton boton-primario">
+            + Nueva especialidad
+        </a>
+    </div>
+
+    <!-- Tabla de especialidades registradas. -->
+    <div class="tabla-contenedor">
+
+        <table class="tabla-especialidades">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <!-- Recorrer las especialidades enviadas desde Flask. -->
+                {% for especialidad in especialidades %}
+
+                <tr>
+                    <td>{{ especialidad.id_especialidad }}</td>
+
+                    <td>{{ especialidad.nombre }}</td>
+
+                    <td>
+                        {{ especialidad.descripcion or 'Sin descripción' }}
+                    </td>
+
+                    <td class="acciones">
+
+                        <!-- Acceso al formulario de edición. -->
+                        <a href="{{ url_for(
+                            'especialidad.editar_especialidad',
+                            id_especialidad=especialidad.id_especialidad
+                        ) }}"
+                           class="boton boton-editar">
+                            Editar
+                        </a>
+
+                        <!-- Formulario para eliminar la especialidad. -->
+                        <form action="{{ url_for(
+                            'especialidad.eliminar_especialidad',
+                            id_especialidad=especialidad.id_especialidad
+                        ) }}"
+                              method="POST"
+                              onsubmit="return confirm('¿Estás seguro de eliminar esta especialidad?');">
+
+                            <button type="submit"
+                                    class="boton boton-eliminar">
+                                Eliminar
+                            </button>
+
+                        </form>
+
+                    </td>
+                </tr>
+
+                {% else %}
+
+                <!-- Mensaje cuando no existen especialidades registradas. -->
+                <tr>
+                    <td colspan="4" class="sin-registros">
+                        No hay especialidades registradas.
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- Total de registros encontrados. -->
+    <div class="total-registros">
+        Total de especialidades: {{ especialidades|length }}
+    </div>
+
+</section>
+
+{% endblock %}

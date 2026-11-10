@@ -1,0 +1,67 @@
+
+{% extends "base.html" %}
+
+{% block titulo %}Editar especialidad | CliniApp{% endblock %}
+
+{% block estilos %}
+<!-- Reutilizamos los estilos generales de los formularios. -->
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/formulario.css') }}">
+
+<!-- Aplicamos los estilos particulares de especialidades. -->
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/formulario_especialidad.css') }}">
+{% endblock %}
+
+{% block contenido %}
+
+<!-- Contenedor principal del formulario de edición. -->
+<div class="contenedor">
+
+    <h2>Editar especialidad</h2>
+
+    <p>Modifica la información de la especialidad seleccionada.</p>
+
+    <!-- Enviamos los cambios a la ruta de actualización. -->
+    <form action="{{ url_for(
+        'especialidad.editar_especialidad',
+        id_especialidad=especialidad.id_especialidad
+    ) }}"
+          method="POST">
+
+        <!-- Campo para modificar el nombre. -->
+        <label for="nombre">Nombre de la especialidad *</label>
+
+        <input type="text"
+               id="nombre"
+               name="nombre"
+               maxlength="100"
+               value="{{ especialidad.nombre }}"
+               required
+               autofocus>
+
+        <!-- Campo para modificar la descripción. -->
+        <label for="descripcion">Descripción</label>
+
+        <textarea id="descripcion"
+                  name="descripcion"
+                  rows="4"
+                  placeholder="Describe brevemente la especialidad médica...">{{ especialidad.descripcion or '' }}</textarea>
+
+        <!-- Botón para guardar los cambios. -->
+        <button type="submit">
+            Actualizar especialidad
+        </button>
+
+    </form>
+
+    <!-- Enlace para regresar sin realizar cambios. -->
+    <p>
+        <a href="{{ url_for('especialidad.listar_especialidades') }}">
+            Volver al listado de especialidades
+        </a>
+    </p>
+
+</div>
+
+{% endblock %}

@@ -1,4 +1,3 @@
-
 # Importamos mysql.connector para conectar Python con MySQL.
 import mysql.connector
 
@@ -7,7 +6,6 @@ from mysql.connector import Error
 
 # Importamos Config para obtener los datos del archivo .env.
 from config import Config
-
 
 # Definimos una función reutilizable para conectarnos a MySQL.
 def get_connection():

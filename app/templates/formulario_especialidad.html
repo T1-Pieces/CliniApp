@@ -1,0 +1,62 @@
+
+{% extends "base.html" %}
+
+{% block titulo %}Registrar especialidad | CliniApp{% endblock %}
+
+{% block estilos %}
+<!-- Reutilizamos los estilos del formulario de pacientes. -->
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/formulario.css') }}">
+
+<!-- Cargamos los estilos particulares de especialidades. -->
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/formulario_especialidad.css') }}">
+{% endblock %}
+
+{% block contenido %}
+
+<!-- Contenedor principal del formulario. -->
+<div class="contenedor">
+
+    <h2>Registrar especialidad</h2>
+
+    <p>Ingresa la información de la nueva especialidad médica.</p>
+
+    <!-- Formulario conectado con la ruta de registro de Flask. -->
+    <form action="{{ url_for('especialidad.registrar_especialidad') }}"
+          method="POST">
+
+        <!-- Campo obligatorio para el nombre. -->
+        <label for="nombre">Nombre de la especialidad *</label>
+
+        <input type="text"
+               id="nombre"
+               name="nombre"
+               required
+               autofocus>
+
+        <!-- Campo opcional para la descripción. -->
+        <label for="descripcion">Descripción</label>
+
+        <textarea id="descripcion"
+                  name="descripcion"
+                  rows="4"
+                  placeholder="Describe brevemente la especialidad médica..."></textarea>
+
+        <!-- Botón para enviar los datos a Flask. -->
+        <button type="submit">
+            Guardar especialidad
+        </button>
+
+    </form>
+
+    <!-- Enlace para regresar al listado. -->
+    <p>
+        <a href="{{ url_for('especialidad.listar_especialidades') }}">
+            Volver al listado de especialidades
+        </a>
+    </p>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+
+/* =====================================================
+   ESTILOS DEL FORMULARIO DE ESPECIALIDADES
+   ===================================================== */
+
+/* Campo de descripción. */
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+}
+
+/* Efecto visual al seleccionar el campo. */
+textarea:focus,
+input:focus {
+    outline: none;
+    border-color: #176b87;
+}
+
+/* Separación del enlace para regresar. */
+.contenedor p a {
+    color: #176b87;
+    text-decoration: none;
+}
+
+/* Efecto del enlace. */
+.contenedor p a:hover {
+    text-decoration: underline;
+}

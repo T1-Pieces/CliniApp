@@ -33,21 +33,48 @@
         <!-- Menú de navegación principal. -->
         <nav class="navegacion">
 
+            <!-- Acceso a la página de inicio. -->
             <a href="{{ url_for('inicio') }}">
                 Inicio
             </a>
 
+            <!-- Acceso al módulo de pacientes. -->
             <a href="{{ url_for('pacientes.listar_pacientes') }}">
                 Pacientes
+            </a>
+
+            <!-- Acceso al módulo de especialidades. -->
+            <a href="/especialidades">
+                Especialidades
             </a>
 
         </nav>
 
     </header>
 
-    <!-- Contenido particular de cada página. -->
+    <!-- Contenido principal de cada página. -->
     <main class="contenido-principal">
 
+        <!-- Mensajes de confirmación y error enviados desde Flask. -->
+        {% with mensajes = get_flashed_messages(with_categories=true) %}
+
+            {% if mensajes %}
+                <section class="mensajes-flash">
+
+                    {% for categoria, mensaje in mensajes %}
+
+                        <div class="mensaje-flash {{ categoria }}">
+                            {{ mensaje }}
+                        </div>
+
+                    {% endfor %}
+
+                </section>
+            {% endif %}
+
+        {% endwith %}
+
+        <!-- Espacio para el contenido particular de cada página. -->
         {% block contenido %}{% endblock %}
 
     </main>
