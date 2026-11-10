@@ -93,7 +93,7 @@ CREATE TABLE `especialidad` (
   `descripcion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_especialidad`),
   UNIQUE KEY `uq_especialidad_nombre` (`nombre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,6 +102,7 @@ CREATE TABLE `especialidad` (
 
 LOCK TABLES `especialidad` WRITE;
 /*!40000 ALTER TABLE `especialidad` DISABLE KEYS */;
+INSERT INTO `especialidad` VALUES (2,'Cardiología','Especialidad médica dedicada al estudio y tratamiento del corazón y del sistema circulatorio.'),(3,'Pediatría','Especialidad médica dedicada a la atención, prevención, diagnóstico y tratamiento de enfermedades en bebés, niños y adolescentes.');
 /*!40000 ALTER TABLE `especialidad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,4 +179,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-11-10 15:26:58
+-- Dump completed on 2026-11-10 16:40:25
