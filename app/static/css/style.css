@@ -1,0 +1,83 @@
+
+/* =========================================
+   ESTILOS GENERALES DE CLINIAPP
+   ========================================= */
+
+/* Configuración general de la página. */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Encabezado principal. */
+.encabezado {
+    background-color: #176b87;
+    color: white;
+    padding: 20px 30px;
+}
+
+/* Contenido interno del encabezado. */
+.encabezado-contenido {
+    text-align: center;
+}
+
+/* Título del encabezado. */
+.encabezado h1 {
+    margin: 0;
+    color: white;
+}
+
+/* Descripción del encabezado. */
+.encabezado p {
+    color: white;
+}
+
+/* Menú de navegación. */
+.navegacion {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* Enlaces del menú. */
+.navegacion a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Efecto al pasar el cursor sobre los enlaces. */
+.navegacion a:hover {
+    text-decoration: underline;
+}
+
+/* Área donde se muestra el contenido de cada página. */
+.contenido-principal {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Pie de página. */
+.pie-pagina {
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    color: #666;
+}
+
+/* Adaptación del menú a pantallas pequeñas. */
+@media (max-width: 600px) {
+    .navegacion {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .contenido-principal {
+        padding: 0 12px;
+    }
+}

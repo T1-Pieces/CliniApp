@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Configuración de caracteres. -->
+    <meta charset="UTF-8">
+
+    <!-- Adaptación a dispositivos móviles. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título dinámico de cada página. -->
+    <title>{% block titulo %}CliniApp{% endblock %}</title>
+
+    <!-- Hoja de estilos compartida por toda la aplicación. -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Espacio para cargar CSS particular de cada página. -->
+    {% block estilos %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- Encabezado general de CliniApp. -->
+    <header class="encabezado">
+
+        <div class="encabezado-contenido">
+            <h1>CliniApp</h1>
+            <p>Sistema de gestión de citas médicas</p>
+        </div>
+
+        <!-- Menú de navegación principal. -->
+        <nav class="navegacion">
+
+            <a href="{{ url_for('inicio') }}">
+                Inicio
+            </a>
+
+            <a href="{{ url_for('pacientes.listar_pacientes') }}">
+                Pacientes
+            </a>
+
+        </nav>
+
+    </header>
+
+    <!-- Contenido particular de cada página. -->
+    <main class="contenido-principal">
+
+        {% block contenido %}{% endblock %}
+
+    </main>
+
+    <!-- Pie de página compartido. -->
+    <footer class="pie-pagina">
+        <p>CliniApp - Sistema de gestión de citas médicas</p>
+    </footer>
+
+</body>
+</html>

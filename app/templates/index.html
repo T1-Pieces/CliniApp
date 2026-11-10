@@ -1,0 +1,41 @@
+
+{% extends "base.html" %}
+
+<!-- Título que aparecerá en la pestaña del navegador. -->
+{% block titulo %}
+Inicio | CliniApp
+{% endblock %}
+
+<!-- Cargamos los estilos particulares de la página principal. -->
+{% block estilos %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/inicio.css') }}">
+{% endblock %}
+
+<!-- Contenido principal de la página de inicio. -->
+{% block contenido %}
+
+    <section class="bienvenida">
+
+        <h2>¡Bienvenido a CliniApp!</h2>
+
+        <p>
+            CliniApp es una aplicación web diseñada para facilitar
+            la gestión de pacientes, médicos, especialidades y
+            citas médicas.
+        </p>
+
+        <p>
+            Desde esta plataforma podrás administrar la información
+            y consultar los registros de manera organizada.
+        </p>
+
+        <!-- Enlace para ingresar al módulo de pacientes. -->
+        <a href="{{ url_for('pacientes.listar_pacientes') }}"
+           class="boton">
+            Gestionar pacientes
+        </a>
+
+    </section>
+
+{% endblock %}

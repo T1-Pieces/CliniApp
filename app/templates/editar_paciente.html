@@ -1,0 +1,101 @@
+
+{% extends "base.html" %}
+
+{% block titulo %}Editar paciente | CliniApp{% endblock %}
+
+{% block estilos %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/formulario.css') }}">
+{% endblock %}
+
+{% block contenido %}
+
+<section class="contenedor">
+
+    <h2>Editar paciente</h2>
+
+    <p>Modifica la información del paciente seleccionado.</p>
+
+    {% if mensaje_error %}
+        <p class="error">{{ mensaje_error }}</p>
+    {% endif %}
+
+    <form method="POST"
+          action="{{ url_for(
+              'pacientes.editar_paciente',
+              id_paciente=paciente.id_paciente
+          ) }}">
+
+        <label for="nombres">Nombres:</label>
+        <input
+            type="text"
+            id="nombres"
+            name="nombres"
+            value="{{ paciente.nombres }}"
+            required
+        >
+
+        <label for="apellidos">Apellidos:</label>
+        <input
+            type="text"
+            id="apellidos"
+            name="apellidos"
+            value="{{ paciente.apellidos }}"
+            required
+        >
+
+        <label for="documento">Documento:</label>
+        <input
+            type="text"
+            id="documento"
+            name="documento"
+            value="{{ paciente.documento }}"
+            required
+        >
+
+        <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+        <input
+            type="date"
+            id="fecha_nacimiento"
+            name="fecha_nacimiento"
+            value="{{ paciente.fecha_nacimiento }}"
+            required
+        >
+
+        <label for="telefono">Teléfono:</label>
+        <input
+            type="text"
+            id="telefono"
+            name="telefono"
+            value="{{ paciente.telefono }}"
+            required
+        >
+
+        <label for="correo">Correo electrónico:</label>
+        <input
+            type="email"
+            id="correo"
+            name="correo"
+            value="{{ paciente.correo }}"
+            required
+        >
+
+        <label for="direccion">Dirección:</label>
+        <input
+            type="text"
+            id="direccion"
+            name="direccion"
+            value="{{ paciente.direccion or '' }}"
+        >
+
+        <button type="submit">Guardar cambios</button>
+
+        <a href="{{ url_for('pacientes.listar_pacientes') }}">
+            Cancelar
+        </a>
+
+    </form>
+
+</section>
+
+{% endblock %}

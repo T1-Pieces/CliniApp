@@ -1,0 +1,37 @@
+
+/* Contenedor de bienvenida de la página principal. */
+.bienvenida {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Título de bienvenida. */
+.bienvenida h2 {
+    color: #176b87;
+}
+
+/* Texto descriptivo. */
+.bienvenida p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Botón para ingresar al módulo de pacientes. */
+.boton {
+    display: inline-block;
+    background-color: #176b87;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+/* Efecto del botón. */
+.boton:hover {
+    background-color: #10546c;
+}

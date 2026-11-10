@@ -1,0 +1,136 @@
+
+{% extends "base.html" %}
+
+{% block titulo %}Pacientes | CliniApp{% endblock %}
+
+{% block estilos %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/pacientes.css') }}">
+{% endblock %}
+
+{% block contenido %}
+
+<section class="modulo-pacientes">
+
+    <h2>Gestión de pacientes</h2>
+
+    <p>
+        Consulta y administra la información de los pacientes registrados.
+    </p>
+
+    <!-- Botón para registrar un nuevo paciente. -->
+    <a
+        href="{{ url_for('pacientes.registrar_paciente') }}"
+        class="boton-registro"
+    >
+        Registrar nuevo paciente
+    </a>
+
+    <!-- Mostrar mensajes de error. -->
+    {% if mensaje_error %}
+        <p class="mensaje-error">
+            {{ mensaje_error }}
+        </p>
+    {% endif %}
+
+    <!-- Mostrar mensajes de éxito. -->
+    {% if mensaje_exito %}
+        <p class="mensaje-exito">
+            {{ mensaje_exito }}
+        </p>
+    {% endif %}
+
+    {% if pacientes %}
+
+        <div class="contenedor-tabla">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Documento</th>
+                        <th>Fecha de nacimiento</th>
+                        <th>Teléfono</th>
+                        <th>Correo</th>
+                        <th>Dirección</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for paciente in pacientes %}
+
+                        <tr>
+                            <td>{{ paciente.id_paciente }}</td>
+                            <td>{{ paciente.nombres }}</td>
+                            <td>{{ paciente.apellidos }}</td>
+                            <td>{{ paciente.documento }}</td>
+                            <td>{{ paciente.fecha_nacimiento }}</td>
+                            <td>{{ paciente.telefono }}</td>
+                            <td>{{ paciente.correo }}</td>
+                            <td>
+                                {{ paciente.direccion or 'No registrada' }}
+                            </td>
+
+                            <td class="acciones">
+
+                                <!-- Botón para editar el paciente. -->
+                                <a
+                                    href="{{ url_for(
+                                        'pacientes.editar_paciente',
+                                        id_paciente=paciente.id_paciente
+                                    ) }}"
+                                    class="boton-editar"
+                                >
+                                    Editar
+                                </a>
+
+                                <!-- Formulario para eliminar el paciente. -->
+                                <form
+                                    method="POST"
+                                    action="{{ url_for(
+                                        'pacientes.eliminar_paciente',
+                                        id_paciente=paciente.id_paciente
+                                    ) }}"
+                                    onsubmit="return confirm(
+                                        '¿Estás seguro de que deseas eliminar este paciente?'
+                                    );"
+                                >
+
+                                    <button
+                                        type="submit"
+                                        class="boton-eliminar"
+                                    >
+                                        Eliminar
+                                    </button>
+
+                                </form>
+
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    {% else %}
+
+        {% if not mensaje_error %}
+            <p class="sin-registros">
+                No hay pacientes registrados.
+            </p>
+        {% endif %}
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

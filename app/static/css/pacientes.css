@@ -1,0 +1,153 @@
+
+/* Contenedor principal del módulo de pacientes. */
+.modulo-pacientes {
+    width: 100%;
+}
+
+/* Título del módulo. */
+.modulo-pacientes h2 {
+    color: #176b87;
+    margin-bottom: 10px;
+}
+
+/* Texto descriptivo. */
+.modulo-pacientes p {
+    line-height: 1.5;
+}
+
+/* Botón para registrar pacientes. */
+.boton-registro {
+    display: inline-block;
+    background-color: #176b87;
+    color: white;
+    padding: 11px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 15px 0 20px;
+}
+
+.boton-registro:hover {
+    background-color: #12546b;
+}
+
+/* Contenedor de la tabla. */
+.contenedor-tabla {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+/* Tabla de pacientes. */
+.contenedor-tabla table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+/* Celdas y encabezados. */
+.contenedor-tabla th,
+.contenedor-tabla td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Encabezado de la tabla. */
+.contenedor-tabla th {
+    background-color: #176b87;
+    color: white;
+}
+
+/* Filas de la tabla. */
+.contenedor-tabla tbody tr:nth-child(even) {
+    background-color: #f2f6f8;
+}
+
+.contenedor-tabla tbody tr:hover {
+    background-color: #e5f1f5;
+}
+
+/* Contenedor de botones de acciones. */
+.acciones {
+    white-space: nowrap;
+}
+
+/* Formulario del botón eliminar. */
+.acciones form {
+    display: inline-block;
+    margin: 0;
+}
+
+/* Botón editar. */
+.boton-editar {
+    display: inline-block;
+    background-color: #176b87;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.boton-editar:hover {
+    background-color: #12546b;
+}
+
+/* Botón eliminar. */
+.boton-eliminar {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.boton-eliminar:hover {
+    background-color: #b02a37;
+}
+
+/* Mensaje de error. */
+.mensaje-error {
+    background-color: #f8d7da;
+    color: #842029;
+    padding: 12px;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+/* Mensaje de éxito. */
+.mensaje-exito {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    padding: 12px;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+/* Mensaje cuando no existen pacientes. */
+.sin-registros {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: #666;
+}
+
+/* Adaptación para pantallas pequeñas. */
+@media (max-width: 600px) {
+    .contenedor-tabla th,
+    .contenedor-tabla td {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .boton-registro {
+        display: block;
+        text-align: center;
+    }
+}

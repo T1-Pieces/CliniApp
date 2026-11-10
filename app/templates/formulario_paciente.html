@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registrar paciente | CliniApp</title>
+
+<!-- Cargamos los estilos generales. -->
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+
+<!-- Cargamos los estilos del formulario. -->
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/formulario.css') }}">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>Registrar paciente</h1>
+
+        <!-- Mostramos los mensajes de error enviados desde Flask. -->
+        {% if mensaje_error %}
+            <p class="error">{{ mensaje_error }}</p>
+        {% endif %}
+
+        <!-- Formulario para enviar los datos del paciente. -->
+        <form action="{{ url_for('pacientes.registrar_paciente') }}"
+              method="POST">
+
+            <label for="nombres">Nombres *</label>
+            <input type="text" id="nombres" name="nombres"
+                   maxlength="100" required>
+
+            <label for="apellidos">Apellidos *</label>
+            <input type="text" id="apellidos" name="apellidos"
+                   maxlength="100" required>
+
+            <label for="documento">Documento *</label>
+            <input type="text" id="documento" name="documento"
+                   maxlength="20" required>
+
+            <label for="fecha_nacimiento">Fecha de nacimiento *</label>
+            <input type="date" id="fecha_nacimiento"
+                   name="fecha_nacimiento" required>
+
+            <label for="telefono">Teléfono *</label>
+            <input type="tel" id="telefono" name="telefono"
+                   maxlength="20" required>
+
+            <label for="correo">Correo electrónico *</label>
+            <input type="email" id="correo" name="correo"
+                   maxlength="100" required>
+
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" name="direccion"
+                   maxlength="255">
+
+            <button type="submit">
+                Guardar paciente
+            </button>
+
+        </form>
+
+        <p>
+            <a href="{{ url_for('pacientes.listar_pacientes') }}">
+                Volver al listado de pacientes
+            </a>
+        </p>
+
+    </div>
+
+</body>
+</html>
